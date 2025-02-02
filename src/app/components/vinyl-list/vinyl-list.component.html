@@ -1,0 +1,17 @@
+<div class="search-box">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <input formControlName="searchQuery">
+    <button type="submit" [disabled]="!myForm.valid">Cerca</button>
+  </form>
+
+</div>
+<h1>Lista vinili</h1>
+<div class="vinyl-grid">
+  <div *ngFor="let vinyl of vinyls" class="vinyl-item">
+    <a [routerLink]="['/vinyl', vinyl.id]">
+      <img [src]="vinyl.cover_image || 'https://via.placeholder.com/150'" [alt]="vinyl.title">
+      <h3>{{ vinyl.title }}</h3>
+      <p>{{ vinyl.artist }}</p>
+    </a>
+  </div>
+</div>

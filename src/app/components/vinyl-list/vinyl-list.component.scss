@@ -1,0 +1,21 @@
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .vinyl-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .vinyl-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+  }
+  .vinyl-item img {
+    width: 100%;
+    height: auto;
+  }
+  

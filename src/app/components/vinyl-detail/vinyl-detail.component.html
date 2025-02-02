@@ -1,0 +1,9 @@
+<div *ngIf="vinyl" class="vinyl-detail">
+    <img [src]="vinyl.images ? vinyl.images[0].resource_url : 'https://via.placeholder.com/300'" [alt]="vinyl.title">
+    <h2>{{ vinyl.title }}</h2>
+    <h3>{{ vinyl.artists[0].name }} ({{ vinyl.year }})</h3>
+    <p><strong>Genere:</strong> {{ vinyl.genres?.join(', ') }}</p>
+    <p><strong>Descrizione:</strong> {{ vinyl.notes }}</p>
+    <a routerLink="/">Torna alla lista</a>
+  </div>
+  
