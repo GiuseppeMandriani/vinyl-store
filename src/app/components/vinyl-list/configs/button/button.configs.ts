@@ -11,3 +11,12 @@ export const SUBMIT_BUTTON_CONFIG: IAppButton = {
         color: ButtonColor.PRIMARY
     
 }
+export const RESET_BUTTON_CONFIG: IAppButton = {
+        id: 'RESET',
+        label: 'Resetta filtri',
+        ariaLabel: 'aria label accessibility',
+        type: ButtonType.RESET,
+        disabled: false,
+        color: ButtonColor.SECONDARY
+    
+}

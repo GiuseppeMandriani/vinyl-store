@@ -13,12 +13,12 @@ import { ButtonColor } from './enum/button-color.enum';
 })
 export class ButtonComponent {
 
-  @Input() public type: ButtonType | string = ButtonType.BUTTON;
-  @Input() public disabled: boolean = false;
-  @Input() public color: ButtonColor | string = ButtonColor.PRIMARY;
+  @Input() public type?: ButtonType | string = ButtonType.BUTTON;
+  @Input() public disabled?: boolean = false;
+  @Input() public color?: ButtonColor | string = ButtonColor.PRIMARY;
   @Input() public label: string = 'Clicca';
-  @Input() public id: string = 'id-button';
-  @Input() public ariaLabel: string = '';
+  @Input() public id?: string = 'id-button';
+  @Input() public ariaLabel?: string = '';
 
 
   @Output() onClick = new EventEmitter<IAppButtonEvent>();
