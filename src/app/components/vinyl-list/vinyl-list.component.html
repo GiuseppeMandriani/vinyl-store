@@ -1,7 +1,17 @@
 <div class="search-box">
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="myForm">
     <input formControlName="searchQuery">
-    <button type="submit" [disabled]="!myForm.valid">Cerca</button>
+    <!-- <button type="submit" [disabled]="!myForm.valid">Cerca</button> -->
+     <app-button 
+      [type]="submitFormButtonConfig?.type ?? 'button'"
+      [disabled]="!myForm.valid"
+      [color]="submitFormButtonConfig?.color ?? 'primary'"
+      [label]="submitFormButtonConfig?.label ?? 'click here'"
+      [ariaLabel]="submitFormButtonConfig?.ariaLabel ?? 'aria label accessibility'"
+      [id]="submitFormButtonConfig?.id ?? 'submit'"
+      (onClick)="getVinyl($event)"
+      >
+    </app-button>
   </form>
 
 </div>

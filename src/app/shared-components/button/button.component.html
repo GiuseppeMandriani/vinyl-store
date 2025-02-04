@@ -1,0 +1,10 @@
+<button
+  [class]="buttonClassDynamic"
+  [type]="type"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel || label"
+  (click)="_handleButtonClick()"
+>
+  {{ label }}
+</button>
+

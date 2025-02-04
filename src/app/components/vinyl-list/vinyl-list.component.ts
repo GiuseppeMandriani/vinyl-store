@@ -3,7 +3,10 @@ import { DiscogsService } from '../../services/discogs.service';
 import { NgFor } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { ButtonComponent } from "../../shared-components/button/button.component";
+import { IAppButton } from '../../shared-components/button/model/button.model';
+import { SUBMIT_BUTTON_CONFIG } from './configs/button/button.configs';
+import { IAppButtonEvent } from '../../shared-components/button/model/button-event.interface';
 
 
 @Component({
@@ -11,12 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   templateUrl: './vinyl-list.component.html',
   styleUrls: ['./vinyl-list.component.scss'],
-  imports: [NgFor, RouterModule, FormsModule, ReactiveFormsModule]
+  imports: [NgFor, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent]
 })
 export class VinylListComponent implements OnInit {
-  vinyls: any[] = [];
-  searchQuery: string = '';
-  myForm: FormGroup;
+  public vinyls: any[] = [];
+  public searchQuery: string = '';
+  public myForm: FormGroup;
+
+  public submitFormButtonConfig:IAppButton = {...SUBMIT_BUTTON_CONFIG}
 
   constructor(
     private discogsService: DiscogsService,
@@ -38,7 +43,7 @@ export class VinylListComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  public getVinyl(event: IAppButtonEvent) {
     if (this.myForm.valid) {
       console.log(this.myForm.value);  // Dati del form
       this.searchQuery = this.myForm.value.searchQuery.trim();
