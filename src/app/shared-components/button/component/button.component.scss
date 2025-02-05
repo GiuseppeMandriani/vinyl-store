@@ -1,32 +1,4 @@
-// .btn {
-//     padding: 10px 20px;
-//     font-size: 16px;
-//     border: none;
-//     cursor: pointer;
-//     border-radius: 5px;
-//     transition: background 0.3s ease-in-out;
-  
-//     &.btn-primary {
-//       background: #007bff;
-//       color: white;
-//     }
-  
-//     &.btn-secondary {
-//       background: #6c757d;
-//       color: white;
-//     }
-  
-//     &.btn-danger {
-//       background: #dc3545;
-//       color: white;
-//     }
-  
-//     &:disabled {
-//       background: #ccc;
-//       cursor: not-allowed;
-//     }
-//   }
-@import '../../../styles.scss';
+@use '../../../../styles.scss' as styles;
 
 .button {
   display: inline-block;
@@ -39,19 +11,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid;
-  
-  // Stile di base
+
   &.button-primary {
     background-color: var(--rosso-retro);
     color: var(--crema-polaroid);
     border-color: var(--marrone-mogano);
 
     &:hover {
-      background-color: darken($rosso-retro, 10%);
+      background-color: color-mix(in srgb, styles.$rosso-retro 90%, black 10%);
     }
 
     &:active {
-      background-color: darken($rosso-retro, 15%);
+      background-color: color-mix(in srgb, styles.$rosso-retro 85%, black 10%);
       transform: scale(0.98);
     }
   }
@@ -62,11 +33,11 @@
     border-color: var(--verde-oliva);
 
     &:hover {
-      background-color: darken($blu-petrolio, 10%);
+      background-color: color-mix(in srgb, styles.$blu-petrolio 90%, black 10%);
     }
 
     &:active {
-      background-color: darken($blu-petrolio, 15%);
+      background-color: color-mix(in srgb, styles.$blu-petrolio 85%, black 10%);
       transform: scale(0.98);
     }
   }
@@ -77,11 +48,11 @@
     border-color: var(--marrone-mogano);
 
     &:hover {
-      background-color: darken($giallo-senape, 10%);
+      background-color: color-mix(in srgb, styles.$giallo-senape 90%, black 10%);
     }
 
     &:active {
-      background-color: darken($giallo-senape, 15%);
+      background-color: color-mix(in srgb, styles.$giallo-senape 85%, black 10%);
       transform: scale(0.98);
     }
   }
@@ -90,8 +61,9 @@
     background-color: var(--nero-vinile);
     color: var(--verde-oliva);
     cursor: not-allowed;
-    border-color: lighten($nero-vinile, 10%);
+    background-color: color-mix(in srgb, styles.$nero-vinile 90%, white 10%);
   }
 }
+
 
   

@@ -1,0 +1,42 @@
+@use '../../../../styles.scss' as styles;
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--marrone-mogano);
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid var(--marrone-mogano);
+  border-radius: 8px;
+  background-color: var(--crema-polaroid);
+  color: var(--nero-vinile);
+  transition: all 0.3s ease;
+  outline: none;
+
+  &::placeholder {
+    color: var(--verde-oliva);
+  }
+
+  &:focus {
+    border-color: var(--rosso-retro);
+    background-color: color-mix(in srgb, styles.$crema-polaroid 95%, white 5%);
+  }
+
+  &:disabled {
+    background-color: var(--nero-vinile);
+    color: var(--verde-oliva);
+    cursor: not-allowed;
+    border-color: color-mix(in srgb, styles.$nero-vinile 90%, white 10%);
+  }
+}

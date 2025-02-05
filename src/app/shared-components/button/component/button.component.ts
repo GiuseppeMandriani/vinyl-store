@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { IAppButton } from './model/button.model';
-import { DEFAULT_CONFIG } from './configs/button.config';
-import { IAppButtonEvent } from './model/button-event.interface';
-import { ButtonType } from './enum/button-type.enum';
-import { ButtonColor } from './enum/button-color.enum';
+import { IAppButton } from '../model/button.model';
+import { DEFAULT_CONFIG } from '../configs/button.config';
+import { IAppButtonEvent } from '../model/button-event.interface';
+import { ButtonType } from '../enum/button-type.enum';
+import { ButtonColor } from '../enum/button-color.enum';
 
 @Component({
   selector: 'app-button',

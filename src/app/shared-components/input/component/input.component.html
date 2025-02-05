@@ -1,0 +1,18 @@
+<div class="input-container">
+    <label *ngIf="label" [for]="name" class="input-label">{{ label }}</label>
+    <input
+      [type]="type"
+      [id]="name"
+      [name]="name"
+      [value]="value"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [required]="required"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-describedby]="ariaDescribedby"
+      [attr.aria-invalid]="ariaInvalid"
+      (input)="onInputChange($event)"
+      class="custom-input"
+    />
+  </div>
+  

@@ -1,9 +1,13 @@
 <div class="search-box container my-3">
   <form [formGroup]="myForm">
-    <input formControlName="searchQuery">
+    <app-input formControlName="search" [id]="searchInputConfig.id ?? ''" [name]="searchInputConfig.name ?? ''"
+      [type]="searchInputConfig.type ?? ''" [label]="searchInputConfig.label ?? ''"
+      [placeholder]="searchInputConfig.placeholder ?? ''" [disabled]="searchInputConfig.disabled ?? false"
+      [readonly]="searchInputConfig.readonly ?? false" [required]="searchInputConfig.required ?? false"
+      (inputChange)="_handleinputChange($event)" [ariaLabel]="searchInputConfig.ariaLabel ?? ''">
+
+    </app-input>
     <!-- FORM FOOTER SECTION -->
-
-
     <div class="row d-flex justify-content between my-3">
       <div class="col-12 col-md-6">
         <app-button [type]="resetFormButtonConfig.type" [color]="resetFormButtonConfig.color"
@@ -11,22 +15,14 @@
           [id]="resetFormButtonConfig.id">
         </app-button>
       </div>
-      <div class="col-12 col-md-6 text-end">
+      <div class="col-12 col-md-6 text-md-end">
         <app-button [type]="submitFormButtonConfig.type" [disabled]="!myForm.valid"
           [color]="submitFormButtonConfig.color" [label]="submitFormButtonConfig.label"
           [ariaLabel]="submitFormButtonConfig.ariaLabel" [id]="submitFormButtonConfig.id" (onClick)="getVinyl($event)">
         </app-button>
       </div>
-
-
     </div>
-
-
-
-
-
   </form>
-
 </div>
 <ng-container *ngIf="vinyls.length > 1">
   <h1>Lista vinili</h1>
