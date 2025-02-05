@@ -4,7 +4,7 @@ import { IAppButton } from "../../../../shared-components/button/model/button.mo
 
 export const SUBMIT_BUTTON_CONFIG: IAppButton = {
         id: 'submit',
-        label: 'Clicca',
+        label: 'Cerca il tuo vinile',
         ariaLabel: 'aria label accessibility',
         type: ButtonType.SUBMIT,
         disabled: false,
@@ -13,7 +13,7 @@ export const SUBMIT_BUTTON_CONFIG: IAppButton = {
 }
 export const RESET_BUTTON_CONFIG: IAppButton = {
         id: 'RESET',
-        label: 'Resetta filtri',
+        label: 'Elimina filtri',
         ariaLabel: 'aria label accessibility',
         type: ButtonType.RESET,
         disabled: false,

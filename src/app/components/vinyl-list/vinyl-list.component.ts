@@ -1,6 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { DiscogsService } from '../../services/discogs.service';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from "../../shared-components/button/button.component";
@@ -14,7 +14,7 @@ import { IAppButtonEvent } from '../../shared-components/button/model/button-eve
   standalone: true,
   templateUrl: './vinyl-list.component.html',
   styleUrls: ['./vinyl-list.component.scss'],
-  imports: [NgFor, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent]
+  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent]
 })
 export class VinylListComponent implements OnInit {
   public vinyls: any[] = [];
@@ -36,15 +36,6 @@ export class VinylListComponent implements OnInit {
   }
 
   ngOnInit(): void { }
-
-  search(): void {
-    console.log(this.searchQuery)
-    if (this.searchQuery.trim()) {
-      this.discogsService.searchVinyls(this.searchQuery).subscribe(data => {
-        this.vinyls = data.results;
-      });
-    }
-  }
 
   public getVinyl(event: IAppButtonEvent) {
     if (this.myForm.valid) {

@@ -1,29 +1,97 @@
-.btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
+// .btn {
+//     padding: 10px 20px;
+//     font-size: 16px;
+//     border: none;
+//     cursor: pointer;
+//     border-radius: 5px;
+//     transition: background 0.3s ease-in-out;
   
-    &.btn-primary {
-      background: #007bff;
-      color: white;
+//     &.btn-primary {
+//       background: #007bff;
+//       color: white;
+//     }
+  
+//     &.btn-secondary {
+//       background: #6c757d;
+//       color: white;
+//     }
+  
+//     &.btn-danger {
+//       background: #dc3545;
+//       color: white;
+//     }
+  
+//     &:disabled {
+//       background: #ccc;
+//       cursor: not-allowed;
+//     }
+//   }
+@import '../../../styles.scss';
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  
+  // Stile di base
+  &.button-primary {
+    background-color: var(--rosso-retro);
+    color: var(--crema-polaroid);
+    border-color: var(--marrone-mogano);
+
+    &:hover {
+      background-color: darken($rosso-retro, 10%);
     }
-  
-    &.btn-secondary {
-      background: #6c757d;
-      color: white;
-    }
-  
-    &.btn-danger {
-      background: #dc3545;
-      color: white;
-    }
-  
-    &:disabled {
-      background: #ccc;
-      cursor: not-allowed;
+
+    &:active {
+      background-color: darken($rosso-retro, 15%);
+      transform: scale(0.98);
     }
   }
+
+  &.button-secondary {
+    background-color: var(--blu-petrolio);
+    color: var(--crema-polaroid);
+    border-color: var(--verde-oliva);
+
+    &:hover {
+      background-color: darken($blu-petrolio, 10%);
+    }
+
+    &:active {
+      background-color: darken($blu-petrolio, 15%);
+      transform: scale(0.98);
+    }
+  }
+
+  &.button-error {
+    background-color: var(--giallo-senape);
+    color: var(--nero-vinile);
+    border-color: var(--marrone-mogano);
+
+    &:hover {
+      background-color: darken($giallo-senape, 10%);
+    }
+
+    &:active {
+      background-color: darken($giallo-senape, 15%);
+      transform: scale(0.98);
+    }
+  }
+
+  &:disabled {
+    background-color: var(--nero-vinile);
+    color: var(--verde-oliva);
+    cursor: not-allowed;
+    border-color: lighten($nero-vinile, 10%);
+  }
+}
+
   

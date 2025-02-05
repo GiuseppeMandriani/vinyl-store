@@ -25,12 +25,12 @@ export class ButtonComponent {
 
 
 
-  public buttonClassDynamic: string = 'btn'; 
+  public buttonClassDynamic: string = 'button'; 
 
   ngOnInit() {
 
       if(this.color) {
-        this.buttonClassDynamic = `btn btn-${this.color}`
+        this.buttonClassDynamic = `button button-${this.color}`
       }
 
     

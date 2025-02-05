@@ -4,7 +4,7 @@ import { IAppButton } from "../model/button.model";
 
 export const DEFAULT_CONFIG: IAppButton = {
     id: 'button', 
-    label: 'Clicca', 
+    label: 'Cerca il tuo vinile', 
     ariaLabel: 'aria-label-button',
     type: ButtonType.BUTTON,
     disabled: false,
