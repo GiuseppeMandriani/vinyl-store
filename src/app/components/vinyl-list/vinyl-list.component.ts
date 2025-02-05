@@ -10,6 +10,7 @@ import { IAppButtonEvent } from '../../shared-components/button/model/button-eve
 import { IAppInput } from '../../shared-components/input/model/input.model';
 import { INPUT_SEARCH_CONFIG } from './configs/input/input.config';
 import { InputComponent } from '../../shared-components/input/component/input.component';
+import { ItemCardComponent } from '../../shared-components/item-card/item-card.component';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { InputComponent } from '../../shared-components/input/component/input.co
   standalone: true,
   templateUrl: './vinyl-list.component.html',
   styleUrls: ['./vinyl-list.component.scss'],
-  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent, InputComponent]
+  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent, InputComponent, ItemCardComponent]
 })
 export class VinylListComponent implements OnInit {
   public vinyls: any[] = [];

@@ -41,20 +41,7 @@ export class InputComponent implements ControlValueAccessor{
   protected subscriptions: Subscription[] = [];
 
 
-  ngOnInit(): void {
-    // if (this.inputFormControl) {
-    //   this.inputFormControl.valueChanges.pipe(
-    //     tap(
-    //       (value: any) => {
-    //         console.log(value)
-
-    //       }
-    //     )
-    //   ).subscribe(noop)
-
-    // }
-
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s?.unsubscribe())

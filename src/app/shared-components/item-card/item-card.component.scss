@@ -1,0 +1,49 @@
+@use '../../../styles.scss' as styles;
+
+.vinyl-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--crema-polaroid);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 220px;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  }
+
+  .vinyl-link {
+    text-decoration: none;
+    color: var(--nero-vinile);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .vinyl-image {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid var(--marrone-mogano);
+    }
+
+    .vinyl-details {
+      padding: 12px;
+      text-align: center;
+
+      .vinyl-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--rosso-retro);
+        margin: 10px 0;
+      }
+
+      .vinyl-artist {
+        font-size: 1rem;
+        color: var(--blu-petrolio);
+      }
+    }
+  }
+}

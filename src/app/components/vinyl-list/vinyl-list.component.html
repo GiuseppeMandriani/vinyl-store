@@ -24,17 +24,11 @@
     </div>
   </form>
 </div>
+
+<!-- SEARCH RESULTS SECTION -->
 <ng-container *ngIf="vinyls.length > 1">
   <h1>Lista vinili</h1>
   <div class="vinyl-grid">
-    <div *ngFor="let vinyl of vinyls" class="vinyl-item">
-      <a [routerLink]="['/vinyl', vinyl.id]">
-        <img [src]="vinyl.cover_image || 'https://via.placeholder.com/150'" [alt]="vinyl.title">
-        <h3>{{ vinyl.title }}</h3>
-        <p>{{ vinyl.artist }}</p>
-      </a>
-    </div>
+    <app-item-card *ngFor="let vinyl of vinyls" [vinyl]="vinyl"></app-item-card>
   </div>
-
-
 </ng-container>
