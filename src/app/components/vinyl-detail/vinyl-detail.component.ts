@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { DiscogsService } from '../../services/discogs.service';
+import { DiscogsService } from '../../services/discogs/old/discogs.service';
 import { NgIf } from '@angular/common';
 
 @Component({

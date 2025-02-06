@@ -1,5 +1,4 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { DiscogsService } from '../../services/discogs.service';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -11,6 +10,7 @@ import { IAppInput } from '../../shared-components/input/model/input.model';
 import { INPUT_SEARCH_CONFIG } from './configs/input/input.config';
 import { InputComponent } from '../../shared-components/input/component/input.component';
 import { ItemCardComponent } from '../../shared-components/item-card/item-card.component';
+import { ApiDiscogsService } from '../../services/discogs/api-discogs/api-discogs.service';
 
 
 @Component({
@@ -22,7 +22,6 @@ import { ItemCardComponent } from '../../shared-components/item-card/item-card.c
 })
 export class VinylListComponent implements OnInit {
   public vinyls: any[] = [];
-  // public searchQuery: string = '';
 
   public myForm: FormGroup = new FormGroup({
     search: new FormControl('')
@@ -41,7 +40,7 @@ export class VinylListComponent implements OnInit {
   public searchInputConfig: IAppInput = { ...INPUT_SEARCH_CONFIG };
 
   constructor(
-    private discogsService: DiscogsService,
+    private apiDiscogsService: ApiDiscogsService,
     private fb: FormBuilder,
   ) {
     this.myForm = this.fb.group({
@@ -56,7 +55,7 @@ export class VinylListComponent implements OnInit {
       console.log(this.myForm.value);  // Dati del form 
       this.searchRequest = this.myForm.value.search.trim();
 
-      this.discogsService.searchVinyls(this.searchRequest).subscribe(data => {
+      this.apiDiscogsService.searchVinyls(this.searchRequest).subscribe(data => {
         this.vinyls = data.results;
       });
     }

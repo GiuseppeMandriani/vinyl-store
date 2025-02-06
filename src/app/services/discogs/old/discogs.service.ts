@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root' // 👈 Assicura che sia fornito a livello globale
+  providedIn: 'root'
 })
 export class DiscogsService {
   private apiUrl = 'https://api.discogs.com/';
