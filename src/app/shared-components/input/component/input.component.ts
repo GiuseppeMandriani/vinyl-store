@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule, ControlValueAccessor } from '@angular/forms';
-import { noop, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, noop, Subscription, tap } from 'rxjs';
 
 @Component({
   selector: 'app-input',
@@ -31,17 +31,28 @@ export class InputComponent implements ControlValueAccessor{
   @Input() ariaLabel: string = '';
   @Input() ariaDescribedby?: string;
   @Input() ariaInvalid?: boolean;
+  @Input() errorMessage?: string;
   
-
-  value: string = '';
-
   @Output() inputChange = new EventEmitter<string>();
-  
+
+  public value: string = '';
+
+  public errorMessage$ = new BehaviorSubject<boolean>(false);
+  public showErrorMessage: boolean = false;
+
 
   protected subscriptions: Subscription[] = [];
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscriptions.push(
+      this.errorMessage$.pipe(
+        tap((showErrorMessage)=> {
+          this.showErrorMessage = showErrorMessage
+        })
+      ).subscribe(noop)
+    )
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s?.unsubscribe())
@@ -55,6 +66,7 @@ export class InputComponent implements ControlValueAccessor{
     this.value = newValue;
     this.onChange(newValue);
     this.onTouched();
+    this.validateInput(); // Chiamata alla validazione ogni volta che cambia il valore
     this.inputChange.emit(newValue); // Emetti evento personalizzato
   }
   
@@ -69,6 +81,14 @@ export class InputComponent implements ControlValueAccessor{
 
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
+  }
+
+  public validateInput() {
+    if (this.required && !this.value.trim()) {
+      this.errorMessage$.next(true);
+    } else {
+      this.errorMessage$.next(false);
+    }
   }
 
 }

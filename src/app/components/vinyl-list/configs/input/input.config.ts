@@ -9,5 +9,7 @@ export const INPUT_SEARCH_CONFIG: IAppInput = {
         placeholder: "Inserire il nome dell'artista",
         disabled: false,
         readonly: false,
+        required: true,
         ariaLabel: 'Cerca il tuo artista',
+        errorMessage: 'errore'
 }

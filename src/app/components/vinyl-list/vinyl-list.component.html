@@ -4,7 +4,7 @@
       [type]="searchInputConfig.type ?? ''" [label]="searchInputConfig.label ?? ''"
       [placeholder]="searchInputConfig.placeholder ?? ''" [disabled]="searchInputConfig.disabled ?? false"
       [readonly]="searchInputConfig.readonly ?? false" [required]="searchInputConfig.required ?? false"
-      (inputChange)="_handleinputChange($event)" [ariaLabel]="searchInputConfig.ariaLabel ?? ''">
+      (inputChange)="_handleinputChange($event)" [errorMessage]="searchInputConfig.errorMessage" >
 
     </app-input>
     <!-- FORM FOOTER SECTION -->

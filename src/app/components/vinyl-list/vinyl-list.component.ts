@@ -11,6 +11,7 @@ import { INPUT_SEARCH_CONFIG } from './configs/input/input.config';
 import { InputComponent } from '../../shared-components/input/component/input.component';
 import { ItemCardComponent } from '../../shared-components/item-card/item-card.component';
 import { ApiDiscogsService } from '../../services/discogs/api-discogs/api-discogs.service';
+import { catchError, noop, of, Subscription, tap } from 'rxjs';
 
 
 @Component({
@@ -39,6 +40,8 @@ export class VinylListComponent implements OnInit {
 
   public searchInputConfig: IAppInput = { ...INPUT_SEARCH_CONFIG };
 
+  private subscriptions: Subscription[] = [];
+
   constructor(
     private apiDiscogsService: ApiDiscogsService,
     private fb: FormBuilder,
@@ -48,16 +51,34 @@ export class VinylListComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach( s => s.unsubscribe())
+  }
 
   public getVinyl(event: IAppButtonEvent) {
     if (this.myForm.valid) {
       console.log(this.myForm.value);  // Dati del form 
       this.searchRequest = this.myForm.value.search.trim();
 
-      this.apiDiscogsService.searchVinyls(this.searchRequest).subscribe(data => {
-        this.vinyls = data.results;
-      });
+      this.subscriptions.push(
+        this.apiDiscogsService.searchVinyls(this.searchRequest).pipe(
+          tap((_res)=> {
+            if(_res && _res.results) {
+              this.vinyls = _res.results;
+            }
+          }),
+          catchError(
+            err => {
+              console.error(err);
+              return of(null)
+            }
+          ),
+        ).subscribe(noop)
+      )
     }
   }
 

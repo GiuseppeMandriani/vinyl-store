@@ -40,3 +40,13 @@
     border-color: color-mix(in srgb, styles.$nero-vinile 90%, white 10%);
   }
 }
+
+.error-message {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--rosso-retro);
+  background-color: color-mix(in srgb, var(--rosso-retro) 10%, white 90%);
+  padding: 5px 10px;
+  border-left: 4px solid var(--rosso-retro);
+  border-radius: 4px;
+}
