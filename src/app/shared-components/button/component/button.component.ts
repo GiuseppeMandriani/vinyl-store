@@ -4,10 +4,12 @@ import { DEFAULT_CONFIG } from '../configs/button.config';
 import { IAppButtonEvent } from '../model/button-event.interface';
 import { ButtonType } from '../enum/button-type.enum';
 import { ButtonColor } from '../enum/button-color.enum';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-button',
   standalone: true,
+  imports: [TranslateModule],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
@@ -26,6 +28,8 @@ export class ButtonComponent {
 
 
   public buttonClassDynamic: string = 'button'; 
+
+  constructor(public translate: TranslateService){}
 
   ngOnInit() {
 

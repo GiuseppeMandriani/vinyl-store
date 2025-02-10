@@ -1,0 +1,14 @@
+{
+    "SHARED:BUTTON-COMPONENT:button--title":"Clicca qui",
+    "SHARED:BUTTON-COMPONENT:button--aria-label":"Clicca qui",
+
+    "SHARED:BUTTON-COMPONENT:button--search-vinyl--label":"Cerca il tuo vinile",
+    "SHARED:BUTTON-COMPONENT:button--reset-vinyl--label":"Elimina filtri",
+
+
+    "SHARED:INPUT-COMPONENT:input-form--artist--label":"Cerca il tuo artista",
+    "SHARED:INPUT-COMPONENT:input-form--artist--placeholder":"Inserire il nome dell'artita",
+    "SHARED:INPUT-COMPONENT:input-form--artist--aria-label":"Cerca il tuo artista",
+
+    "SHARED:ERROR-FEEDBACK-REQUIRED:required--message":"Campo obbligatorio"
+}

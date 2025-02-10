@@ -5,11 +5,11 @@ export const INPUT_SEARCH_CONFIG: IAppInput = {
         name: 'search',
         value:'',
         type: 'text',
-        label: 'Cerca il tuo artista',
-        placeholder: "Inserire il nome dell'artista",
+        label: 'SHARED:INPUT-COMPONENT:input-form--artist--label',
+        placeholder: "SHARED:INPUT-COMPONENT:input-form--artist--placeholder",
         disabled: false,
         readonly: false,
         required: true,
-        ariaLabel: 'Cerca il tuo artista',
-        errorMessage: 'errore'
+        ariaLabel: 'SHARED:INPUT-COMPONENT:input-form--artist--aria-label',
+        errorMessage: 'SHARED:ERROR-FEEDBACK-REQUIRED:required--message'
 }

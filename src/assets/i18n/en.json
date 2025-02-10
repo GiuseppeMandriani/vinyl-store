@@ -1,0 +1,13 @@
+{
+    "SHARED:BUTTON-COMPONENT:button--title": "Click here",
+    "SHARED:BUTTON-COMPONENT:button--aria-label": "Click here",
+
+    "SHARED:BUTTON-COMPONENT:button--search-vinyl--label": "Search your vinyl",
+    "SHARED:BUTTON-COMPONENT:button--reset-vinyl--label": "Clear filters",
+
+    "SHARED:INPUT-COMPONENT:input-form--artist--label": "Search your artist",
+    "SHARED:INPUT-COMPONENT:input-form--artist--placeholder": "Enter the artist's name",
+    "SHARED:INPUT-COMPONENT:input-form--artist--aria-label": "Search your artist",
+
+    "SHARED:ERROR-FEEDBACK-REQUIRED:required--message": "Required field"
+}

@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { FormsModule, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule, ControlValueAccessor } from '@angular/forms';
 import { BehaviorSubject, noop, Subscription, tap } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   providers: [
@@ -42,6 +43,8 @@ export class InputComponent implements ControlValueAccessor{
 
 
   protected subscriptions: Subscription[] = [];
+
+  constructor(public translate: TranslateService){}
 
 
   ngOnInit(): void {

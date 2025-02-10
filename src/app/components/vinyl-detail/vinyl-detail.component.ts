@@ -5,8 +5,9 @@ import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-vinyl-detail',
+  standalone: true,
   templateUrl: './vinyl-detail.component.html',
-  styleUrls: ['./vinyl-detail.component.css'],
+  styleUrls: ['./vinyl-detail.component.scss'],
   imports:[NgIf,RouterModule ]
 })
 export class VinylDetailComponent implements OnInit {

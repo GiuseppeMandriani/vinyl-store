@@ -4,8 +4,8 @@ import { IAppButton } from "../../../../shared-components/button/model/button.mo
 
 export const SUBMIT_BUTTON_CONFIG: IAppButton = {
         id: 'submit',
-        label: 'Cerca il tuo vinile',
-        ariaLabel: 'aria label accessibility',
+        label: 'SHARED:BUTTON-COMPONENT:button--search-vinyl--label',
+        ariaLabel: 'SHARED:BUTTON-COMPONENT:button--aria-label',
         type: ButtonType.SUBMIT,
         disabled: false,
         color: ButtonColor.PRIMARY
@@ -13,8 +13,8 @@ export const SUBMIT_BUTTON_CONFIG: IAppButton = {
 }
 export const RESET_BUTTON_CONFIG: IAppButton = {
         id: 'RESET',
-        label: 'Elimina filtri',
-        ariaLabel: 'aria label accessibility',
+        label: 'SHARED:BUTTON-COMPONENT:button--reset-vinyl--label',
+        ariaLabel: 'SHARED:BUTTON-COMPONENT:button--aria-label',
         type: ButtonType.RESET,
         disabled: false,
         color: ButtonColor.SECONDARY
