@@ -1,5 +1,9 @@
 <main class="main">
-  <app-language-switcher [languages]="['en', 'it']" [currentLang]="currentLang" (changeLang)="switchLanguage($event)"></app-language-switcher>
+  <!-- HEADER SECTION -->
+   <div class="container d-flex justify-content-md-end my-3">
+     <app-language-switcher [languages]="['en', 'it']" [currentLang]="currentLang" (changeLang)="switchLanguage($event)"></app-language-switcher>
+   </div>
+
   <router-outlet></router-outlet>
 
 </main>
