@@ -11,12 +11,17 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class LanguageSwitcherComponent {
 
-  @Input() languages: string[] = ['en', 'it']; // Lingue disponibili
+  @Input() languages: string[] = ['it', 'en']; // Lingue disponibili
   @Input() currentLang: string = 'it'; // Lingua predefinita
 
   @Output() changeLang = new EventEmitter<string>();
 
   constructor(private translateService: TranslateService) {
+
+  }
+
+  ngOnInit(): void {
+    console.log(this.currentLang);
     this.translateService.setDefaultLang(this.currentLang);
     this.translateService.use(this.currentLang);
   }

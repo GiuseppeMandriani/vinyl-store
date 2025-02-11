@@ -12,7 +12,7 @@ import { LanguageSwitcherComponent } from './shared-components/language-switcher
 })
 export class AppComponent {
   title = 'vinyl-store';
-  public currentLang: string = 'en'; // La lingua predefinita
+  public currentLang: string = 'it'; // La lingua predefinita
 
   constructor(private translateService: TranslateService) {
     this.translateService.setDefaultLang(this.currentLang);
@@ -21,9 +21,9 @@ export class AppComponent {
 
   ngOnInit() {
     // Imposta la lingua predefinita
-    this.translateService.setDefaultLang('en');
+    this.translateService.setDefaultLang('it');
     // Carica la lingua (puoi cambiare tra le lingue disponibili)
-    this.translateService.use('en');
+    this.translateService.use('it');
   }
 
   // Metodo per cambiare la lingua
