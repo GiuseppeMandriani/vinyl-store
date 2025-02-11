@@ -10,5 +10,7 @@
     "SHARED:INPUT-COMPONENT:input-form--artist--placeholder":"Inserire il nome dell'artita",
     "SHARED:INPUT-COMPONENT:input-form--artist--aria-label":"Cerca il tuo artista",
 
-    "SHARED:ERROR-FEEDBACK-REQUIRED:required--message":"Campo obbligatorio"
+    "SHARED:ERROR-FEEDBACK-REQUIRED:required--message":"Campo obbligatorio",
+
+    "SHARED:LANGUAGE-SWITCHER:label--message":"Cambia lingua"
 }

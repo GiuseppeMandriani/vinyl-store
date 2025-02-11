@@ -9,5 +9,6 @@
     "SHARED:INPUT-COMPONENT:input-form--artist--placeholder": "Enter the artist's name",
     "SHARED:INPUT-COMPONENT:input-form--artist--aria-label": "Search your artist",
 
-    "SHARED:ERROR-FEEDBACK-REQUIRED:required--message": "Required field"
+    "SHARED:ERROR-FEEDBACK-REQUIRED:required--message": "Required field",
+    "SHARED:LANGUAGE-SWITCHER:label--message":"Change language"
 }

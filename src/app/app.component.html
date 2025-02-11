@@ -1,4 +1,5 @@
 <main class="main">
+  <app-language-switcher [languages]="['en', 'it']" [currentLang]="currentLang" (changeLang)="switchLanguage($event)"></app-language-switcher>
   <router-outlet></router-outlet>
 
 </main>
