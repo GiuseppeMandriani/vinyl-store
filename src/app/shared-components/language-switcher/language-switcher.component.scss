@@ -1,0 +1,40 @@
+/* Palette di colori */
+$blue-night: #1e2a47;
+$electric-purple: #8e44ad;
+$lemon-yellow: #f1c40f;
+$warm-orange: #e67e22;
+$smoke-gray: #7f8c8d;
+$pure-white: #ffffff;
+$mint-green: #2ecc71;
+
+/* Stile principale per il componente LanguageSwitcher */
+.language-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: $blue-night;
+  padding: 15px;
+  border-radius: 8px;
+
+  select {
+    background-color: $smoke-gray;
+    color: $pure-white;
+    border: 1px solid $electric-purple;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:focus {
+      border-color: $mint-green;
+    }
+  }
+
+  /* Etichetta per il select */
+  label {
+    color: $pure-white;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+}

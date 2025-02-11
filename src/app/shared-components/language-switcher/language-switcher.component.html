@@ -1,0 +1,9 @@
+<div class="language-switcher">
+    <label for="language-select">{{ 'SHARED:LANGUAGE-SWITCHER:label--message' | translate }}</label>
+    <select id="language-select" (change)="onLanguageChange($event)" [value]="currentLang">
+      <option *ngFor="let lang of languages" [value]="lang">
+        {{ lang.toUpperCase() }}
+      </option>
+    </select>
+  </div>
+  
