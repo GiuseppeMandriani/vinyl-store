@@ -10,3 +10,21 @@ export const DEFAULT_CONFIG: IAppButton = {
     disabled: false,
     color: ButtonColor.PRIMARY
 }
+
+export const DEFAULT_SUBMIT_CONFIG: IAppButton = {
+    id: 'submit',
+    label: 'SHARED:BUTTON-COMPONENT:button--search-vinyl--label',
+    ariaLabel: 'SHARED:BUTTON-COMPONENT:button--aria-label',
+    type: ButtonType.SUBMIT,
+    disabled: false,
+    color: ButtonColor.PRIMARY
+}
+
+export const DEFAULT_RESET_CONFIG: IAppButton = {
+    id: 'RESET',
+    label: 'SHARED:BUTTON-COMPONENT:button--reset-vinyl--label',
+    ariaLabel: 'SHARED:BUTTON-COMPONENT:button--aria-label',
+    type: ButtonType.RESET,
+    disabled: false,
+    color: ButtonColor.SECONDARY
+}

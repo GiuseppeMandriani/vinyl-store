@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Signal, WritableSignal, forwardRef, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NG_VALUE_ACCESSOR, FormControl, ReactiveFormsModule, ControlValueAccessor } from '@angular/forms';
 import { BehaviorSubject, noop, Subscription, tap } from 'rxjs';
@@ -38,8 +38,7 @@ export class InputComponent implements ControlValueAccessor{
 
   public value: string = '';
 
-  public errorMessage$ = new BehaviorSubject<boolean>(false);
-  public showErrorMessage: boolean = false;
+  public showErrorMessageSignal: WritableSignal<boolean> = signal(false); // WritableSignal permette di modificarne il valore.
 
 
   protected subscriptions: Subscription[] = [];
@@ -47,15 +46,7 @@ export class InputComponent implements ControlValueAccessor{
   constructor(public translate: TranslateService){}
 
 
-  ngOnInit(): void {
-    this.subscriptions.push(
-      this.errorMessage$.pipe(
-        tap((showErrorMessage)=> {
-          this.showErrorMessage = showErrorMessage
-        })
-      ).subscribe(noop)
-    )
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s?.unsubscribe())
@@ -87,11 +78,7 @@ export class InputComponent implements ControlValueAccessor{
   }
 
   public validateInput() {
-    if (this.required && !this.value.trim()) {
-      this.errorMessage$.next(true);
-    } else {
-      this.errorMessage$.next(false);
-    }
+    this.showErrorMessageSignal.set(this.required && !this.value.trim());
   }
 
 }

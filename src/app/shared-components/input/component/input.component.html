@@ -4,7 +4,7 @@
     [required]="required" [attr.aria-label]="ariaLabel| translate " [attr.aria-describedby]="ariaDescribedby"
     [attr.aria-invalid]="ariaInvalid" (input)="onInputChange($event)"  class="custom-input" />
   <!-- Messaggio di errore -->
-   <ng-container *ngIf="showErrorMessage">
+   <ng-container *ngIf="showErrorMessageSignal()">
     <p  class="error-message">{{ errorMessage ?? 'error' | translate }}</p>
    </ng-container>
 </div>
