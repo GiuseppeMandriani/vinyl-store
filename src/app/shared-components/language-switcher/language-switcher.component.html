@@ -1,4 +1,4 @@
-<ng-container *ngIf="dataReady">
+<ng-container *ngIf="dataReadySignal$()">
   <div class="language-switcher">
     <label for="language-select">{{ 'SHARED:LANGUAGE-SWITCHER:label--message' | translate }}</label>
     <select 

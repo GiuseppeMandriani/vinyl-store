@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, signal, SimpleChanges, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageOption } from './model/language-options.model';
@@ -23,8 +23,10 @@ export class LanguageSwitcherComponent implements OnInit {
 
   public selectedLang: string = '';
 
-  public dataReady: boolean = false;
-  public dataReady$ = new BehaviorSubject<boolean>(false);
+  // public dataReady: boolean = false;
+  // public dataReady$ = new BehaviorSubject<boolean>(false);
+
+  public dataReadySignal$: WritableSignal<boolean> = signal(false);
 
   public isSelectOpen: boolean = false;
 
@@ -38,15 +40,17 @@ export class LanguageSwitcherComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.currentLang);
-    this.subscriptions.push(
-      this.dataReady$.pipe(
-        tap((dataReady)=> {
-          this.dataReady = dataReady
-        })
-      ).subscribe(noop)
-    );
+    // this.subscriptions.push(
+    //   this.dataReady$.pipe(
+    //     tap((dataReady)=> {
+    //       this.dataReady = dataReady
+    //     })
+    //   ).subscribe(noop)
+    // );
 
-    this.dataReady$.next(false);
+    // this.dataReady$.next(false);
+
+    this.dataReadySignal$.set(true);
 
     this.translateLabels();
   }
@@ -75,7 +79,9 @@ export class LanguageSwitcherComponent implements OnInit {
       label: this.translateService.instant(lang.label) // Pre-traduzione
     }));
 
-    this.dataReady$.next(true);
+    this.dataReadySignal$.set(true);
+
+    // this.dataReady$.next(true);
 
   }
 
