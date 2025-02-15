@@ -1,11 +1,4 @@
-/* Palette di colori */
-// $blue-night: #1e2a47;
-// $electric-purple: #8e44ad;
-// $lemon-yellow: #f1c40f;
-// $warm-orange: #e67e22;
-// $smoke-gray: #7f8c8d;
-// $pure-white: #ffffff;
-// $mint-green: #2ecc71;
+
 
 @use '../../../styles/styles.scss' as styles;
 
@@ -21,7 +14,7 @@
 
   select {
     background-color: var(--crema-polaroid);
-    color: var(--nero-vinile);
+    color: var(--verde-oliva);
     border: 2px solid var(--marrone-mogano);
     padding: 10px;
     border-radius: 5px;

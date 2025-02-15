@@ -1,35 +1,82 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageOption } from './model/language-options.model';
+import { BehaviorSubject, noop, Subscription, tap } from 'rxjs';
 
 @Component({
   selector: 'app-language-switcher',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, FormsModule],
   templateUrl: './language-switcher.component.html',
   styleUrl: './language-switcher.component.scss'
 })
-export class LanguageSwitcherComponent {
+export class LanguageSwitcherComponent implements OnInit {
 
-  @Input() languages: string[] = ['it', 'en']; // Lingue disponibili
-  @Input() currentLang: string = 'it'; // Lingua predefinita
+  @Input() languages: LanguageOption[] = []; // Lingue disponibili
+  @Input() set currentLang(value: string) {
+    this.selectedLang = value;
+  }
 
   @Output() changeLang = new EventEmitter<string>();
 
-  constructor(private translateService: TranslateService) {
+  public selectedLang: string = '';
+
+  public dataReady: boolean = false;
+  public dataReady$ = new BehaviorSubject<boolean>(false);
+
+  public isSelectOpen: boolean = false;
+
+  protected subscriptions: Subscription[] = [];
+
+  constructor(
+    public translateService: TranslateService, 
+  ) {
 
   }
 
   ngOnInit(): void {
     console.log(this.currentLang);
-    this.translateService.setDefaultLang(this.currentLang);
-    this.translateService.use(this.currentLang);
+    this.subscriptions.push(
+      this.dataReady$.pipe(
+        tap((dataReady)=> {
+          this.dataReady = dataReady
+        })
+      ).subscribe(noop)
+    );
+
+    this.dataReady$.next(false);
+
+    this.translateLabels();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(s => s?.unsubscribe())
+  }
 
-  public onLanguageChange(event: Event): void {
-    const selectedLanguage = (event.target as HTMLSelectElement).value;
-    this.changeLang.emit(selectedLanguage); // Emissione della lingua selezionata
+  
+
+  public onLanguageChange(newLang: string): void {
+    this.changeLang.emit(newLang);
+  }
+
+  public onFocus(selectElement: HTMLSelectElement): void {
+    this.isSelectOpen = true; // Quando la select guadagna il focus, la lista si apre
+  }
+
+  public onBlur(selectElement: HTMLSelectElement): void {
+    this.isSelectOpen = false; // Quando la select perde il focus, la lista si chiude
+  }
+
+  public translateLabels(){
+    this.languages = this.languages.map(lang => ({
+      ...lang,
+      label: this.translateService.instant(lang.label) // Pre-traduzione
+    }));
+
+    this.dataReady$.next(true);
+
   }
 
 }

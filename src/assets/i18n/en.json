@@ -1,4 +1,7 @@
 {
+    "SHARED:LANGUAGE-SWITCHER-COMPONENT:italian--label":"Italian",
+    "SHARED:LANGUAGE-SWITCHER-COMPONENT:english--label":"English",
+
     "SHARED:BUTTON-COMPONENT:button--title": "Click here",
     "SHARED:BUTTON-COMPONENT:button--aria-label": "Click here",
 

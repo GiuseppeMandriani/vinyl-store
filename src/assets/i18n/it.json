@@ -1,4 +1,8 @@
 {
+
+    "SHARED:LANGUAGE-SWITCHER-COMPONENT:italian--label":"Italiano",
+    "SHARED:LANGUAGE-SWITCHER-COMPONENT:english--label":"Inglese",
+    
     "SHARED:BUTTON-COMPONENT:button--title":"Clicca qui",
     "SHARED:BUTTON-COMPONENT:button--aria-label":"Clicca qui",
 
