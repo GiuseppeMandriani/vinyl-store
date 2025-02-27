@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, OnInit } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -19,7 +19,8 @@ import { catchError, noop, of, Subscription, tap } from 'rxjs';
   standalone: true,
   templateUrl: './vinyl-list.component.html',
   styleUrls: ['./vinyl-list.component.scss'],
-  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent, InputComponent, ItemCardComponent]
+  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent, InputComponent, ItemCardComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class VinylListComponent implements OnInit {
   public vinyls: any[] = [];
