@@ -9,7 +9,8 @@ import { HttpLoaderFactory } from './app/core/translate/translate-loader';
 import '@webcomponents/webcomponentsjs/webcomponents-bundle.js';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import 'my-lib-app'; // Importa i componenti Lit
+import 'my-lib-app';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Importa i componenti Lit
 
 
 // Registrazione manuale (se il Web Component non si registra automaticamente)
@@ -35,7 +36,7 @@ bootstrapApplication(AppComponent, {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }), provideAnimationsAsync(), provideAnimationsAsync()
   ]
 })
   .catch(err => console.error(err));

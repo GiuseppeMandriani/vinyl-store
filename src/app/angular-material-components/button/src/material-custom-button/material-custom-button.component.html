@@ -1,0 +1,107 @@
+<div [ngSwitch]="variant">
+
+  <!-- Bottone Flat -->
+  <button *ngSwitchCase="'flat'" 
+    mat-flat-button 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <span *ngIf="label">{{ label }}</span>
+  </button>
+
+  <!-- Bottone Raised -->
+  <button *ngSwitchCase="'raised'" 
+    mat-raised-button 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <span *ngIf="label">{{ label }}</span>
+  </button>
+
+  <!-- Bottone Stroked -->
+  <button *ngSwitchCase="'stroked'" 
+    mat-stroked-button 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <span *ngIf="label">{{ label }}</span>
+  </button>
+
+  <!-- Bottone Icon -->
+  <button *ngSwitchCase="'icon'" 
+    mat-icon-button 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+  </button>
+
+  <!-- Bottone Fab -->
+  <button *ngSwitchCase="'fab'" 
+    mat-fab 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <span *ngIf="label">{{ label }}</span>
+  </button>
+
+  <!-- Bottone Mini-Fab -->
+  <button *ngSwitchCase="'mini-fab'" 
+    mat-mini-fab 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <span *ngIf="label">{{ label }}</span>
+  </button>
+
+  <!-- Caso di default (mat-button) se nessuna variante corrisponde -->
+  <button *ngSwitchDefault 
+    mat-button 
+    [attr.type]="type"
+    [attr.aria-label]="ariaLabel"
+    [attr.aria-labelledby]="ariaLabelledby"
+    [attr.aria-hidden]="ariaHidden"
+    [tabIndex]="tabIndex"
+    [color]="color" 
+    [disabled]="disabled" 
+    (click)="onClick($event)">
+    <mat-icon *ngIf="icon">{{ icon }}</mat-icon>
+    <span *ngIf="label">{{ label }}</span>
+  </button>
+
+</div>

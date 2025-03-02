@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from "../../shared-components/button/component/button.component";
 import { IAppButton } from '../../shared-components/button/model/button.model';
-import { RESET_BUTTON_CONFIG, SUBMIT_BUTTON_CONFIG } from './configs/button/button.configs';
+import { RESET_BUTTON_CONFIG, SUBMIT_BUTTON_CONFIG, TEST_BUTTON_MATERIAL_BUTTON_CONFIG } from './configs/button/button.configs';
 import { IAppButtonEvent } from '../../shared-components/button/model/button-event.interface';
 import { IAppInput } from '../../shared-components/input/model/input.model';
 import { INPUT_SEARCH_CONFIG } from './configs/input/input.config';
@@ -12,6 +12,8 @@ import { InputComponent } from '../../shared-components/input/component/input.co
 import { ItemCardComponent } from '../../shared-components/item-card/item-card.component';
 import { ApiDiscogsService } from '../../services/discogs/api-discogs/api-discogs.service';
 import { catchError, noop, of, Subscription, tap } from 'rxjs';
+import { IMaterialCustomButtonConfig } from 'src/app/angular-material-components/button/src/material-custom-button/model/material-custom-button.interface';
+import { MaterialCustomButtonComponent } from 'src/app/angular-material-components/button/src/material-custom-button/material-custom-button.component';
 
 
 @Component({
@@ -19,7 +21,7 @@ import { catchError, noop, of, Subscription, tap } from 'rxjs';
   standalone: true,
   templateUrl: './vinyl-list.component.html',
   styleUrls: ['./vinyl-list.component.scss'],
-  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent, InputComponent, ItemCardComponent],
+  imports: [NgFor, NgIf, RouterModule, FormsModule, ReactiveFormsModule, ButtonComponent, InputComponent, ItemCardComponent, MaterialCustomButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class VinylListComponent implements OnInit {
@@ -37,10 +39,13 @@ export class VinylListComponent implements OnInit {
   public submitFormButtonConfig: IAppButton = { ...SUBMIT_BUTTON_CONFIG };
   public resetFormButtonConfig: IAppButton = { ...RESET_BUTTON_CONFIG };
 
+  public customMaterialButtonCongig: IMaterialCustomButtonConfig = {
+    ...TEST_BUTTON_MATERIAL_BUTTON_CONFIG
+  }
+
   // INPUTS CONFIG
 
   public searchInputConfig: IAppInput = { ...INPUT_SEARCH_CONFIG };
-
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -85,6 +90,10 @@ export class VinylListComponent implements OnInit {
 
   public _handleinputChange(evt: any) {
     console.log(evt);
+  }
+
+  public _hanleClickCustomButton(evt: Event) {
+    console.log(evt)
   }
 
 }

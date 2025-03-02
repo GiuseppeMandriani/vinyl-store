@@ -5,15 +5,17 @@ import { LanguageSwitcherComponent } from './shared-components/language-switcher
 import { LanguageOption } from './shared-components/language-switcher/model/language-options.model';
 
 import 'my-lib-app'; // Importa i componenti Lit
+import { MatButtonModule } from '@angular/material/button'; // Assicurati di aver importato MatButtonModule
+import { MaterialCustomButtonComponent } from './angular-material-components/button/src/material-custom-button/material-custom-button.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TranslateModule, LanguageSwitcherComponent ],
+  imports: [RouterOutlet, TranslateModule, LanguageSwitcherComponent, MatButtonModule, MaterialCustomButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'vinyl-store';
